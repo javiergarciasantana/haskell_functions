@@ -1,0 +1,71 @@
+EXERCISE 1  
+  exampleTree = Gnode [Leaf 1, Gnode [Leaf 2, Leaf 3], Leaf 4]
+
+  putStrLn $ "Depth of the tree: " ++ show (depthGTree exampleTree)
+  putStrLn $ "Does 3 occur in the tree? " ++ show (elemInGTree 3 exampleTree)
+  putStrLn $ "Mapped tree: " ++ show (mapLeaves (*2) exampleTree)
+
+EXERCISE 2 
+  exampleValuation = [('x', 3), ('y', 5)]
+  exampleExpr = Op (\[a, b] -> a + 2 * b) [EVar 'x', Lit 4]
+
+  putStrLn $ "Evaluated result: " ++ show (eval exampleValuation exampleExpr)
+
+EXERCISE 3 
+  let a = char 'a'
+      b = char 'b'
+      ab = a <*> b
+      abStar = star ab
+      abOption = option ab
+      abPlus = plus ab
+
+  putStrLn "Test with 'ab' regular expression:"
+  
+  -- Test option function
+  putStrLn "Option (zero or one 'ab'):"
+  print $ abOption "ab"   -- Should return True
+  print $ abOption "a"    -- Should return True
+  print $ abOption "b"    -- Should return False
+
+  -- Test plus function
+  putStrLn "Plus (one or more 'ab'):"
+  print $ abPlus "ab"     -- Should return True
+  print $ abPlus "abab"   -- Should return True
+  print $ abPlus "a"      -- Should return False
+
+  -- Test with a string containing multiple occurrences of 'ab'
+  putStrLn "Star (zero or more 'ab'):"
+  print $ abStar "ababab" -- Should return True
+  print $ abStar "a"      -- Should return True
+  print $ abStar "b"      -- Should return True
+  print $ abStar ""       -- Should return True
+
+EXERCISE 4 
+
+EXERCISE 5 
+  putStrLn $ "Result of composed function: " ++ show (composedFunction 25)
+  putStrLn $ "Result of composed function: " ++ show (composedFunction 0)
+  putStrLn $ "Result of composed function: " ++ show (composedFunction (-4))
+
+EXERCISE 6
+
+  let upperBound = 50  -- Adjust the upper bound as needed
+  putStrLn $ "Checking Goldbach conjecture up to " ++ show upperBound
+  putStrLn $ "Result: " ++ show (goldbach upperBound)
+
+EXERCISE 7  
+
+  -- Create a stream of integers starting from 1
+  let intStream = streamIterate (+1) 1
+
+  -- Create a stream of squared integers starting from 1
+  let squaredStream = streamIterate (\x -> x * x) 1
+
+  -- Interleave the two streams
+  let interleavedStream = streamInterleave intStream squaredStream
+
+  -- Take the first 10 elements from the interleaved stream
+  let result = take 10 (streamtoList interleavedStream)
+
+  -- Print Result
+  putStrLn $ "Interleaved stream: " ++ show result
