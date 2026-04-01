@@ -3,7 +3,7 @@
 
 module Set_3 where
 
-import Data.Char
+--import Data.Char
 
 --Excersise 1
 data Shape = Circle Float (Float, Float) | Rectangle Float Float (Float, Float)

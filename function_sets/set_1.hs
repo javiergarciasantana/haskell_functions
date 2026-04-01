@@ -1,7 +1,6 @@
 module Set_1 where
 
-import  Test.QuickCheck
-
+-- import  Test.QuickCheck
 
 nAnd :: Bool -> Bool -> Bool
 nAnd x y = not(x && y)

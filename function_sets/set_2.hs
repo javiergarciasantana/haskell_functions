@@ -3,7 +3,7 @@
 
 module Set_2 where
 
-import  Test.QuickCheck
+--import  Test.QuickCheck
 import Data.Char
 
 --excersise 1

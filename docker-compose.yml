@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  haskell-tui:
+    build: .
+    stdin_open: true # Mantiene abierta la entrada (stdin)
+    tty: true        # Simula una terminal real para la TUI
